@@ -16,6 +16,7 @@ MetaRF将多个基分类器的预测结果作为输入，通过元学习器（me
 使用元学习管道进行预测：使用测试数据和训练好的元学习管道进行预测。MetaRF将返回最佳的超参数和模型。
 
 # 示例代码如下：
+
 from metafeatures import MetaFeatures
 
 from metafeatures.metafeatures import all_metafeatures
@@ -25,10 +26,12 @@ from metalearning import MetaLearningPipeline
 from sklearn.ensemble import RandomForestRegressor
 
 # 计算元特征
+
 mf = MetaFeatures()
 mf.calculate(dataset_path='path/to/dataset.csv', metafeature_list=all_metafeatures)
 
 # 定义元学习管道
+
 meta_pipeline = MetaLearningPipeline(
 
     base_model=RandomForestRegressor(),
@@ -45,7 +48,9 @@ meta_pipeline = MetaLearningPipeline(
 )
 
 # 训练元学习管道
+
 meta_pipeline.fit(X_train, y_train)
 
 # 使用元学习管道选择最佳模型和超参数
+
 best_params, best_model = meta_pipeline.predict(X_test, y_test)
