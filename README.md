@@ -30,11 +30,17 @@ mf.calculate(dataset_path='path/to/dataset.csv', metafeature_list=all_metafeatur
 
 # 定义元学习管道
 meta_pipeline = MetaLearningPipeline(
+
     base_model=RandomForestRegressor(),
+    
     meta_model=RandomForestRegressor(),
+    
     meta_feature_generator=mf,
+    
     n_meta_features=10,
+    
     n_estimators=100,
+    
     n_jobs=-1
 )
 
